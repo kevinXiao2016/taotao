@@ -1,0 +1,11 @@
+com\xiaoyue\mapper\TbItemParamItemMapper.class
+com\xiaoyue\mapper\TbContentMapper.class
+com\xiaoyue\mapper\TbItemParamMapper.class
+com\xiaoyue\mapper\TbOrderItemMapper.class
+com\xiaoyue\mapper\TbOrderMapper.class
+com\xiaoyue\mapper\TbItemDescMapper.class
+com\xiaoyue\mapper\TbItemCatMapper.class
+com\xiaoyue\mapper\TbOrderShippingMapper.class
+com\xiaoyue\mapper\TbItemMapper.class
+com\xiaoyue\mapper\TbContentCategoryMapper.class
+com\xiaoyue\mapper\TbUserMapper.class

@@ -1,0 +1,9 @@
+com\xiaoyue\utils\FtpUtil.class
+com\xiaoyue\utils\HttpClientUtil.class
+com\xiaoyue\utils\IDUtils.class
+com\xiaoyue\utils\CookieUtils.class
+com\xiaoyue\utils\ExceptionUtil.class
+com\xiaoyue\utils\EasyUIResult.class
+com\xiaoyue\utils\JsonUtils.class
+com\xiaoyue\utils\TaotaoResult.class
+com\xiaoyue\utils\PictureResult.class
