@@ -32,19 +32,17 @@ public class LoginInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
         String token = CookieUtils.getCookieValue(request, "TT_TOKEN");
-        
-        //没有登录
+
+        // 没有登录
         if (StringUtils.isBlank(token)) {
             // 跳转登录页面
-            response.sendRedirect();
+            // response.sendRedirect();
             return false;
         }
-        
-        //token有，说明已登录，判断是否超时
-        
-        
-        
-        
+        return true;
+
+        // token有，说明已登录，判断是否超时
+
     }
 
     @Override

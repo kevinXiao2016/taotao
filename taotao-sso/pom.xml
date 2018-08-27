@@ -73,7 +73,7 @@
     </dependencies>
 
     <build>
-        <finalName>taotao-rest</finalName>
+        <finalName>taotao-sso</finalName>
         <plugins>
             <!-- 配置Tomcat插件 -->
             <plugin>
