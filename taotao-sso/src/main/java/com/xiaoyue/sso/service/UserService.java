@@ -45,5 +45,5 @@ public interface UserService {
      */
     TaotaoResult getUserByToken(String token) throws Exception;
 	
-	TaotaoResult logout(String token, HttpServletRequest request, HttpServletResponse response) throws Exception;
+	TaotaoResult logout(HttpServletRequest request, HttpServletResponse response) throws Exception;
 }

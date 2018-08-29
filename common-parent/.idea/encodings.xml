@@ -2,7 +2,6 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/taotao-sso" charset="UTF-8" />
     <file url="file://$WORKSPACE_LOC$/taotao/common-utils" charset="UTF-8" />
     <file url="file://$WORKSPACE_LOC$/taotao/taotao-manager" charset="UTF-8" />
     <file url="file://$WORKSPACE_LOC$/taotao/taotao-manager/taotao-manager-mapper" charset="UTF-8" />
@@ -11,6 +10,8 @@
     <file url="file://$WORKSPACE_LOC$/taotao/taotao-manager/taotao-manager-web" charset="UTF-8" />
     <file url="file://$WORKSPACE_LOC$/taotao/taotao-portal" charset="UTF-8" />
     <file url="file://$WORKSPACE_LOC$/taotao/taotao-rest" charset="UTF-8" />
+    <file url="file://$WORKSPACE_LOC$/taotao/taotao-search" charset="UTF-8" />
+    <file url="file://$WORKSPACE_LOC$/taotao/taotao-search" charset="UTF-8" />
     <file url="file://$WORKSPACE_LOC$/taotao/taotao-sso" charset="UTF-8" />
   </component>
 </project>

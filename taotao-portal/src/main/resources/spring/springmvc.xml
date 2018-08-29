@@ -19,6 +19,13 @@
     <!--<mvc:default-servlet-handler />-->
     <!--<mvc:resources mapping="/js/**" location="/WEB-INF/js/"/>-->
     <!--<mvc:resources mapping="/css/**" location="/WEB-INF/css/"/>-->
+    
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/user**"/>
+            <bean class="com.xiaoyue.portal.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="defaultEncoding" value="utf-8"/>

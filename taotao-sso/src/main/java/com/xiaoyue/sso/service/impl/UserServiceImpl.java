@@ -147,11 +147,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public TaotaoResult logout(String token, HttpServletRequest request, HttpServletResponse response)
+    public TaotaoResult logout(HttpServletRequest request, HttpServletResponse response)
             throws Exception {
 
         // 更新用户有效期
-        jedisCluster.expire(USER_TOKEN_KEY + ":" + token, 0);
+        jedisCluster.expire(USER_TOKEN_KEY + ":" + CookieUtils.getCookieValue(request,"TT_TOKEN"), 0);
         // 删除cookie
         CookieUtils.deleteCookie(request, response, "TT_TOKEN");
         return TaotaoResult.ok();

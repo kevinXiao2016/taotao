@@ -13,10 +13,14 @@ package com.xiaoyue.portal.interceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.xiaoyue.utils.CookieUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.web.servlet.HandlerInterceptor;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+
+import com.xiaoyue.pojo.TbUser;
+import com.xiaoyue.portal.service.impl.UserServiceImpl;
+import com.xiaoyue.utils.CookieUtils;
 
 /**
  * 〈一句话功能简述〉<br>
@@ -26,7 +30,11 @@ import org.springframework.web.servlet.ModelAndView;
  * @create 2018/8/24
  * @since 1.0.0
  */
-public class LoginInterceptor implements HandlerInterceptor {
+public class LoginInterceptor extends HandlerInterceptorAdapter {
+
+    @Autowired
+    private UserServiceImpl userService;
+
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
@@ -36,24 +44,36 @@ public class LoginInterceptor implements HandlerInterceptor {
         // 没有登录
         if (StringUtils.isBlank(token)) {
             // 跳转登录页面
-            // response.sendRedirect();
+            response.sendRedirect(userService.getSSO_BASE_URL() + userService.getSSO_PAGE_LOGIN() + "?redirect="
+                    + request.getRequestURL());
             return false;
         }
-        return true;
 
         // token有，说明已登录，判断是否超时
-
+        TbUser user = userService.getUserByToken(token);
+        if (user == null) {
+            // 登录超时了，或者查询出错
+            // 重新登录
+            response.sendRedirect(userService.getSSO_BASE_URL() + userService.getSSO_PAGE_LOGIN() + "?redirect="
+                    + request.getRequestURL());
+            return false;
+        } else {
+            // 取到用户信息，已登录
+            request.setAttribute("user", user);
+            return true;
+        }
     }
-
-    @Override
-    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
-            ModelAndView modelAndView) throws Exception {
-
+    
+    private String getBaseURL(HttpServletRequest request) {
+        String url = request.getScheme()
+                + "://"
+                + request.getServerName()
+                + ":"
+                + request.getServerPort()
+                + request.getContextPath()
+                + request.getRequestURI();
+        return url;
     }
-
-    @Override
-    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
-            throws Exception {
-
-    }
+    
+    
 }

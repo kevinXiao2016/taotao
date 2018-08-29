@@ -23,6 +23,7 @@ import com.xiaoyue.utils.TaotaoResult;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * 〈一句话功能简述〉<br>
@@ -105,23 +106,22 @@ public class UserController {
         return taotaoResult;
     }
 
-    @RequestMapping(value = "/logout/{token}", method = RequestMethod.GET)
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
     @ResponseBody
-    public Object logout(@PathVariable String token, String callback, HttpServletRequest request,
-            HttpServletResponse response) {
+    public Object logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
         TaotaoResult taotaoResult;
         try {
-            taotaoResult = userService.logout(token,request,response);
+            taotaoResult = userService.logout(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             taotaoResult = TaotaoResult.build(500, ExceptionUtil.getStackTrace(e));
         }
 
-        if (!StringUtils.isEmpty(callback)) {
-            MappingJacksonValue jacksonValue = new MappingJacksonValue(taotaoResult);
-            jacksonValue.setJsonpFunction(callback);
-            return jacksonValue;
-        }
+//        if (!StringUtils.isEmpty(callback)) {
+//            MappingJacksonValue jacksonValue = new MappingJacksonValue(taotaoResult);
+//            jacksonValue.setJsonpFunction(callback);
+//            return jacksonValue;
+//        }
 
         return taotaoResult;
     }

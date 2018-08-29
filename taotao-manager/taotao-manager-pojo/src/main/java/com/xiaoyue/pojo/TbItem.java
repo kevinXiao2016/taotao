@@ -1,9 +1,11 @@
 package com.xiaoyue.pojo;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Date;
 
 public class TbItem {
-    //商品状态，1-正常，2-下架，3-删除
+    // 商品状态，1-正常，2-下架，3-删除
     public static final byte NORMAL = 1;
     public static final byte OFF = 2;
     public static final byte DELETE = 3;
@@ -30,7 +32,8 @@ public class TbItem {
 
     private Date updated;
 
-    public TbItem(Long id, String title, String sellPoint, Long price, Integer num, String barcode, String image, Long cid, Byte status, Date created, Date updated) {
+    public TbItem(Long id, String title, String sellPoint, Long price, Integer num, String barcode, String image,
+            Long cid, Byte status, Date created, Date updated) {
         this.id = id;
         this.title = title;
         this.sellPoint = sellPoint;
@@ -135,4 +138,5 @@ public class TbItem {
     public void setUpdated(Date updated) {
         this.updated = updated;
     }
+
 }

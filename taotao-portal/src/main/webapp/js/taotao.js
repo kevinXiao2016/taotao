@@ -11,12 +11,33 @@ var TT = TAOTAO = {
 			success : function(data){
 				if(data.status == 200){
 					var username = data.data.username;
-					var html = username + "，欢迎来到淘淘！<a href=\"http://localhost:8084/user/logout.html\" class=\"link-logout\">[退出]</a>";
+					var html = username + "，欢迎来到淘淘！<a href='javascript:void(0);' onclick='TT.logout()' class='link-logout'>[退出]</a>";
 					$("#loginbar").html(html);
 				}
 			}
 		});
-	}
+	},
+
+	logout : function () {
+        var _ticket = $.cookie("TT_TOKEN");
+        if(!_ticket){
+            var html = "您好！欢迎来到淘淘！<a href='javascript:login()'>[登录]</a>&nbsp;<a href='javascript:regist()'>[免费注册]</a>";
+            $("#loginbar").html(html);
+            return ;
+        }
+        $.ajax({
+            url : "http://localhost:8084/user/logout",
+            dataType : "jsonp",
+            type : "GET",
+            success : function(data){
+                if(data.status == 200){
+                    var html = "您好！欢迎来到淘淘！<a href='javascript:login()'>[登录]</a>&nbsp;<a href='javascript:regist()'>[免费注册]</a>";
+                    $("#loginbar").html(html);
+                }
+            }
+        });
+
+    }
 }
 
 $(function(){

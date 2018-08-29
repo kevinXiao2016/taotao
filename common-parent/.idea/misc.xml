@@ -6,6 +6,7 @@
     <file type="web" url="file://$WORKSPACE_LOC$/taotao/taotao-manager/taotao-manager-web" />
     <file type="web" url="file://$WORKSPACE_LOC$/taotao/taotao-portal" />
     <file type="web" url="file://$WORKSPACE_LOC$/taotao/taotao-rest" />
+    <file type="web" url="file://$WORKSPACE_LOC$/taotao/taotao-search" />
     <file type="web" url="file://$WORKSPACE_LOC$/taotao/taotao-sso" />
   </component>
   <component name="MavenProjectsManager">
@@ -18,6 +19,7 @@
         <option value="$WORKSPACE_LOC$/taotao/taotao-rest/pom.xml" />
         <option value="$WORKSPACE_LOC$/taotao/taotao-sso/pom.xml" />
         <option value="$WORKSPACE_LOC$/taotao/generatorSqlmap-IDEA/pom.xml" />
+        <option value="$WORKSPACE_LOC$/taotao/taotao-search/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
